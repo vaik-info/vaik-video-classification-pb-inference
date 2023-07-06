@@ -13,6 +13,7 @@ pip install git+https://github.com/vaik-info/vaik-video-classification-pb-infere
 ```python
 import os
 import imageio
+import numpy as np
 from vaik_video_classification_pb_inference.pb_model import PbModel
 
 input_saved_model_dir_path = os.path.expanduser('~/.vaik-video-classification-pb-trainer/output_model/2023-07-05-09-27-55/step-1000_batch-8_epoch-11_loss_0.1745_sparse_categorical_accuracy_0.9555_val_loss_2.8367_val_sparse_categorical_accuracy_0.4620')
@@ -25,7 +26,7 @@ video_path = os.path.expanduser('/home/kentaro/.vaik-utc101-video-classification
 model = PbModel(input_saved_model_dir_path, classes)
 
 video = imageio.get_reader(video_path,  'ffmpeg')
-frames = [frame for frame in video]
+frames = [np.array(frame, dtype=np.uint8) for frame in video]
 output, raw_pred = model.inference(frames, batch_size=1)
 ```
 
