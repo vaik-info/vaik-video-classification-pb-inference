@@ -21,7 +21,7 @@ classes = ("ApplyEyeMakeup", "ApplyLipstick", "Archery", "BabyCrawling", "Balanc
            "Basketball", "BasketballDunk", "BenchPress", "Biking", "Billiards", "BlowDryHair", "BlowingCandles",
            "BodyWeightSquats", "Bowling", "BoxingPunchingBag", "BoxingSpeedBag", "BreastStroke", "BrushingTeeth",
            "CleanAndJerk", "CliffDiving", "CricketBowling", "CricketShot", "CuttingInKitchen")
-video_path = os.path.expanduser('/home/kentaro/.vaik-utc101-video-classification-dataset/test/Archery/Archery_1012.avi')
+video_path = os.path.expanduser('~/.vaik-utc101-video-classification-dataset/test/Archery/Archery_1012.avi')
 
 model = PbModel(input_saved_model_dir_path, classes)
 
