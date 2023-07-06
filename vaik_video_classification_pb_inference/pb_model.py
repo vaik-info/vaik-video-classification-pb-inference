@@ -14,7 +14,7 @@ class PbModel:
         self.model_output_dtype = self.model.signatures["serving_default"].outputs[0].dtype
         self.classes = classes
 
-    def inference(self, input_image_list: List[np.ndarray], batch_size: int = 8) -> Tuple[List[Dict], ndarray]:
+    def inference(self, input_image_list: List[np.ndarray], batch_size: int = 8) -> Tuple[List[Dict], np.ndarray]:
         resized_image_array = self.__preprocess_image_list(input_image_list, self.model_input_shape[1:])
         raw_pred = self.__inference(resized_image_array, batch_size)
         output = self.__output_parse(raw_pred, len(input_image_list)-1)
